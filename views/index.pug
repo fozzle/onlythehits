@@ -1,0 +1,54 @@
+doctype html
+html(lang="en")
+  head
+    title Only The Hits
+    link(rel="stylesheet", type="text/css", href="/static/css/spectre.css")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+  body
+    .container
+      .columns
+        .column.col-3.col-sm-0
+        .column.col-6.col-sm-12
+            h1.text-center Only The Hits
+            p
+              .
+                Some tweets are best forgotten. Quickly delete all your poorly received past tweets, leaving only
+                your best work. Set the requirements to choose which tweets to leave behind
+                and link with your Twitter account. You'll be asked for confirmation before any deletion occurs, and
+                your data will not be stored anywhere.
+        .column.col-3.col-sm-0
+          
+      .divider
+      .columns
+        .column.col-sm-12
+          form(action='/connect', method='POST') 
+            -var minLikesError = errors && errors.filter(x => x.path === 'minLikes')[0];
+            .form-group(class=minLikesError ? "has-error" : "")
+              .form-label(for="min-likes") Mininum Likes
+              input#min-likes.form-input(type="number", name="minLikes", placeholder="Min. amount of likes")
+              if minLikesError
+                p.form-input-hint #{minLikesError.message}
+            
+            -var minRetweetsError = errors && errors.filter(x => x.path === 'minRetweets')[0];
+            .form-group(class=minRetweetsError ? "has-error" : "")
+              .form-label(for="min-retweets") Mininum Retweets
+              input#min-retweets.form-input(type="number", name="minRetweets", placeholder="Min. amount of retweets")
+              if minRetweetsError
+                p.form-input-hint #{minRetweetsError.message}
+            
+            -var minAgeError = errors && errors.filter(x => x.path === 'minAge')[0];
+            .form-group(class=minAgeError ? "has-error" : "")
+              .form-label(for="min-age") Mininum Age (In Days)
+              input#min-age.form-input(type="number", name="minAge", placeholder="Min. age in days")
+              if minAgeError
+                p.form-input-hint #{minAgeError.message}
+                
+            .form-group
+              label.form-switch
+                input(type="checkbox", name="includeReplies")
+                i.form-icon
+                | Include Replies
+            
+            button.btn.btn-primary.btn-lg(type="submit") Let's Delete Some Tweets
+            
+    

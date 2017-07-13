@@ -1,0 +1,51 @@
+doctype html
+html(lang="en")
+  head
+    title Only The Hits
+    link(rel="stylesheet", type="text/css", href="/static/css/spectre.css")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+  body
+    .container
+      .columns
+        .column.col-3.col-sm-0
+        .column.col-6.col-sm-12
+            h1.text-center Confirmation
+            p
+              .
+                Make sure the information below is correct, then hit confirm to start
+                the deletion process.
+        .column.col-3.col-sm-0    
+      .divider
+      .columns
+        .column.col-3.col-sm-0
+        .column.col-6.col-sm-12
+          p.text-center
+            img.avatar.avatar-xl(src=accountAvatar)
+            br
+            strong #{accountName}
+            
+          -var repliesVerb = includeReplies ? 'are' : 'are not';
+          p We're going to delete tweets that: 
+            strong have less than #{minLikes} likes
+            em  and 
+            strong have less than #{minRetweets} retweets
+            em  and 
+            strong are more than #{minAge} days old. 
+            | Replies 
+            strong #{repliesVerb} 
+            | up for deletion.
+          p
+            em
+              .
+                Final warning! This will delete all tweets that meet the above conditions.
+                Once this button is pressed, there's no going back!
+
+          p.text-center
+            button#confirm-button.btn.btn-primary.btn-lg CONFIRM
+        .column.col-3.col-sm-0
+    
+    script(type="text/javascript", src="/static/js/index.js")
+    
+          
+            
+    

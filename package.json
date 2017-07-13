@@ -1,0 +1,26 @@
+{
+  "name": "only-the-hits",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "watch": "nodemon --exec './scripts/watch.sh'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kyle Petrovich",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "joi": "^10.6.0",
+    "oauth": "^0.9.15",
+    "pug": "^2.0.0-rc.2",
+    "qs": "^6.5.0",
+    "spectre.css": "^0.2.14"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
